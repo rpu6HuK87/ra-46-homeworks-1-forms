@@ -14,16 +14,20 @@ export const Hex2Rgb = () => {
 
   const handleSetColor = ({target}) => {
     const {value} = target
-    const rgb = hexToRgb(value)
-
     setHex(value)
-    setRgb(rgb)
+    if (value.length === 7) setRgb(hexToRgb(value))
   }
 
   return (
     <div className="container" style={{backgroundColor: rgb}}>
       <form>
-        <input name="name" value={hex} onChange={handleSetColor} autoFocus />
+        <input
+          name="name"
+          value={hex}
+          onChange={handleSetColor}
+          autoFocus
+          maxLength={7}
+        />
         <br />
         <input value={rgb ? rgb : 'Ошибка!'} disabled />
       </form>
