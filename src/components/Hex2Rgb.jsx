@@ -29,7 +29,10 @@ export const Hex2Rgb = () => {
           maxLength={7}
         />
         <br />
-        <input value={rgb ? rgb : 'Ошибка!'} disabled />
+        <input
+          value={rgb ? rgb : hex.length < 7 ? 'Введите цвет в HEX' : 'Ошибка!'}
+          disabled
+        />
       </form>
     </div>
   )
